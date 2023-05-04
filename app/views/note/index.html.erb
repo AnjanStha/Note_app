@@ -1,0 +1,18 @@
+
+<p> this is note page</p>
+
+  Logged in as <strong><%= current_user.email %></strong>
+  <%= button_to "Logout", destroy_user_session_path, method: :delete %>
+
+  <% @notes.each do |note| %>
+    <h2><%= note.title %></h2>
+    <p><%= note.content %></p>
+    <%= link_to "Edit", note_edit_path(id: note.id) %>
+    <%= link_to "Delete", note_delete_path(id: note.id), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+   
+  <% end %>
+  <br>
+  <br>
+  <%= link_to "New Note", new_note_path %>
+  
+

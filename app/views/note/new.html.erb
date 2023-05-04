@@ -1,0 +1,14 @@
+<%= form_with(model: @note, url: note_create_path) do |form| %>
+    <div>
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+    <div>
+      <%= form.label :content %>
+      <%= form.text_area :content %>
+    </div>
+    <div>
+      <%= form.submit "Create Note" %>
+    </div>
+  <% end %>
+  
