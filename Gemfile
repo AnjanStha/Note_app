@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.3"
 
+#for calendar
+gem "simple_calendar"
+
 # devise gem install
 gem 'devise'
 

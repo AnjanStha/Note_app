@@ -2,7 +2,6 @@
     margin:0;
     padding:0;
 }
-
 .body{
     background:#F4F5F9;
     height: 100vh;
@@ -29,7 +28,7 @@
 .right-navbar{
     margin-right: 7%;
 }
-.container{
+.container1{
     /* background-color: green; */
     height: 85%;
 }
@@ -61,8 +60,8 @@
     display: flex;
     align-items: center;
     align-content: center;
+    justify-content: center;
     margin-right:3%;
-    display: flex;
     flex-direction: row;
 }
 .add-note-buttom{
@@ -90,6 +89,7 @@
     display: flex;
     /* background-color: blue; */
     align-items: center;
+    margin-top:8px;
 }
 .note-container{
     /* background-color: #93a4e7; */

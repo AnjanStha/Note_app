@@ -1,7 +1,15 @@
 class NoteController < ApplicationController
+  
+
   def index
     @notes = current_user.notes.includes(:user)
+  
+    if params[:start_date].present?
+      start_date = Date.parse(params[:start_date])
+      @notes = @notes.where("DATE(created_at) = ?", start_date)
+    end
   end
+  
   
 
   def new
