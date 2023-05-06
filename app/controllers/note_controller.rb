@@ -3,6 +3,7 @@ class NoteController < ApplicationController
   def index
     @notes = current_user.notes.includes(:user)
   
+    # user select date filter for notes
     if params[:start_date].present?
       start_date = Date.parse(params[:start_date])
       @notes = @notes.where("DATE(created_at) = ?", start_date)
@@ -10,20 +11,20 @@ class NoteController < ApplicationController
   end
   
   
-
+  # for create new note
   def new
     @note = Note.new
   end
   
-
+  # for save new note in database
   def create
     @note = Note.new(note_params)
-    p @note
     if @note.save
       redirect_to note_path
+      
     else
       render :new
-      p "does not save data"
+      # p "does not save data"
       puts @note.errors.full_messages
     end
   end
