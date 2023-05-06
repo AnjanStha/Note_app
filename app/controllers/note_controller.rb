@@ -1,6 +1,5 @@
 class NoteController < ApplicationController
   
-
   def index
     @notes = current_user.notes.includes(:user)
   
@@ -45,9 +44,7 @@ class NoteController < ApplicationController
   
 
   def update
-    #  p "in update model"
-    # p @note
-    # p params
+
     @note = Note.find(params[:note][:id])
     if @note.update(note_params)
       redirect_to note_path(@note)
@@ -58,7 +55,6 @@ class NoteController < ApplicationController
   
 
   def destroy
-    p params
     @note = Note.find(params[:id])
     @note.destroy
     redirect_to note_path

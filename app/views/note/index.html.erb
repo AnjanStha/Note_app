@@ -8,7 +8,9 @@
       </div>
 
       <div class="right-navbar">
-      <%= button_to "Logout", destroy_user_session_path, method: :delete %>
+      <%= button_to  destroy_user_session_path, method: :delete,class:"btn btn-danger", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }  do %>
+           <span> Logout</span>
+        <% end %>
       </div>
 
   </div>
@@ -23,77 +25,33 @@
             </div>
 
             <div class="right-top-container">
-            <div>
-            <%= form_tag note_path, method: :get do %>
-              <div>
-                <%= label_tag :start_date %>
-                <%= date_field_tag :start_date, params[:start_date] %>
-              </div>
+              <div class="filter"> Filter by: </div>
              
-              <%= submit_tag "Filter" %>
-            <% end %>
-            
-              
-            
-            </div>
-               
-            <%= link_to new_note_path do %>
-              <div class="add-note-buttom">        
-              <i class='bx bx-plus icon'></i>
-                  <p class="text">Add Note</p>
-                 
-              </div>
+              <%= form_tag note_path, method: :get do %>
+                <div>
+                  <%= date_field_tag :start_date, params[:start_date], onchange: "this.form.submit();" , class: "my-date-field"%>
+                </div>
               <% end %>
 
+              <% if @notes.present? %>
+                    <%= link_to new_note_path do %>
+                    <div class="add-note-buttom">        
+                    <i class='bx bx-plus icon'></i>
+                        <p class="text">Add Note</p>
+                      
+                    </div>
+                    <% end %>
+              <% end %>
           
             </div>
         </div>
-
-        <div class="note-container">
-              <% @notes.each do |note| %>
-                <div class="notes">
-                    <div class="top-notes">
-                        <div class="left-top-notes">
-                          <p><%= note.title %></p>
-                        </div>
-
-                        <div class="right-top-notes">
-                            <p><%= note.created_at.strftime('%d- %B -%Y')%></p>
-                            <div class="dots"><i class='bx bx-dots-vertical-rounded '></i>
-                                <div class="dropdown">
-                                  <ul>
-                                  <%= link_to note_edit_path(id: note.id) do %>
-                                    <li>        
-                                    <i class='bx bxs-edit'></i>
-                                        <p>Edit</p>
-                                    </li>
-                                    <% end %>
-                                    <%= link_to note_delete_path(id: note.id), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }  do %>
-                                      <li>        
-                                      <i class='bx bx-trash' ></i>
-                                          <p>Delete</p>
-                                      </li>
-                                      <% end %>
-                                  </ul>
-                                </div>
-
-                            </div>
-                        </div>
-
-                       
-                    </div>
-                    
-
-                    <div class="notes-content">
-
-                      <p><%= note.content %></p>
-                      
-                    </div>
-                </div>
-              <% end %>
-             
-
-        </div>
+        <% if @notes.empty? %>
+           <%= render partial: "note_empty" %>
+        <% else %>
+            <%= render partial: "note_form" %>
+       <% end %>
+      
+    
     </div>
   </div>
 

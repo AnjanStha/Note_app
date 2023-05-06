@@ -31,6 +31,7 @@
 .container1{
     /* background-color: green; */
     height: 85%;
+
 }
 .main-container{
     background-color:#FAFBFC;
@@ -38,12 +39,14 @@
     flex-direction: column;
     height: 90%;
     margin: 3% 7% 0 7%;
+    padding-top: 1%;
     border-radius: 5px;
 }
 .top-container{
-    /* background-color:aqua; */
+     /* background-color:aqua; */
     display: flex;
     flex-direction: row;
+    align-content: center;
     align-items: center;
     justify-content: space-between;
     height: 15%;
@@ -53,23 +56,48 @@
     margin-left:3%;
     font-size: 28px;
     font-weight: 700;
+    align-content: center;
+   
 }
 
 
 .right-top-container{
+    /* background-color: rgb(199, 159, 159); */
     display: flex;
+    height: 70%;
+    flex-direction: row;
     align-items: center;
     align-content: center;
     justify-content: center;
     margin-right:3%;
-    flex-direction: row;
+    
 }
+.right-top-container .filter {
+    /* background-color: rgb(99, 99, 122); */
+    align-content: center;
+    font-size: 16px;
+    margin-right:5px;
+}
+
+ .my-date-field {
+    /* background-color: rgb(197, 172, 88); */
+    display: flex;
+    align-items: center;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 5px;
+    padding:0px 10px 0px 10px;
+    border: 2px solid rgb(99, 92, 92);
+ }
+
+
 .add-note-buttom{
     display: flex;
     flex-direction: row;
+    align-items: center;
     /* background-color: rgb(225, 226, 207); */
-    height:90%;
-    font-size: 18px;
+    height:50px;
+    font-size: 16px;
     margin:10px;
     padding:0px 30px 0px 30px;
     color:red;
@@ -81,15 +109,15 @@
 }
 
  .icon{
-    font-size: 35px;
+    font-size: 30px;
     /* background-color: red; */
     padding: 5px;
 }
  .text {
     display: flex;
     /* background-color: blue; */
-    align-items: center;
-    margin-top:8px;
+    align-content: center;
+     margin-top:15px; 
 }
 .note-container{
     /* background-color: #93a4e7; */
@@ -98,7 +126,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding:0 3% 3% 3%;
+    padding:1% 3% 3% 3%;
 }
 .notes{
     background-color: #F4F5F9;
@@ -116,7 +144,7 @@
     display: flex;
     position: relative;
     flex-direction: row;
-    align-items: center;
+    align-content: center;
     justify-content: space-between;
     height: 15%;
   
@@ -125,19 +153,23 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-content: center;
+    
 }
+.right-top-notes P {
+    margin-top: 4px;
+}
+
 .right-top-notes i {
     padding:10px 10px 10px 10px;
 }
 
 .dropdown {
-   
     position:absolute;
     width: 100px;
-    top:30px;
+    top:40px;
     right:0;
-    min-height: 80px;
+    min-height: 70px;
     background:#FAFBFC;
     justify-content:end;
      display: none;
@@ -148,14 +180,12 @@
 .dropdown::before
 {   content: '';
     position:absolute;
-    top: -10%;
-    right:11%;
+    top: -8%;
+    right:8%;
     width: 20px;
     height: 20px;
     background:#FAFBFC;
     transform: rotate(45deg);
-
-
 }
 
 .dots:hover .dropdown{
@@ -164,15 +194,17 @@
 }
 
 .dropdown ul {
+    /* background-color: aquamarine; */
     list-style: none;
     margin:15px 0 10px 0;
 }
 .dropdown ul li {
+    /* background-color: red; */
     display: flex;
     flex-direction: row;
     text-decoration: none; 
-    align-items: center;
-    margin-bottom: 5px;  
+    align-content: center;
+    margin-left:-25px;
 }
 
 .dropdown a {
@@ -188,5 +220,19 @@
 }
 .notes-content {
     margin:10px;
+}
+.empty-notes-page {
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.empty-button{
+    background-color: red;
+    color:#ffffff;
 }
 

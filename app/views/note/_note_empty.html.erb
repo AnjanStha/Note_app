@@ -1,0 +1,46 @@
+<div class="note-container">
+
+    <div class = "empty-notes-page">
+
+        <div class="empty-img">
+        <%= image_tag asset_path('empty_image.png'), alt: 'truemark_logo' %>
+        </div>
+
+        <div> 
+            <h2> You don't have any notes yet </h2>
+        </div>
+
+        <div>
+            <p> Please add the note by clicking the add note button</p>
+        </div>
+
+        <%= link_to new_note_path do %>
+            <div class="add-note-buttom empty-button">        
+            <i class='bx bx-plus icon'></i>
+                <p class="text">Add Note</p>
+            
+            </div>
+            <% end %>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+<div class="note-container">
+              <% @notes.each do |note| %>
+                <div class="notes">
+                    <div class="top-notes">
+                        <div class="left-top-notes">
+                          <p><%= note.title %></p>
+                        </div>
+
+                        <div class="right-top-notes">
+                            <p><%= note.created_at.strftime('%d- %B -%Y')%></p>
+                            <div class="dots"><i class='bx bx-dots-vertical-rounded '></i>
+                                <div class="dropdown">
+                                  <ul>
+                                  <%= link_to note_edit_path(id: note.id) do %>
+                                    <li>        
+                                    <i class='bx bxs-edit'></i>
+                                        <p>Edit</p>
+                                    </li>
+                                    <% end %>
+                                    <%= link_to note_delete_path(id: note.id), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }  do %>
+                                      <li>        
+                                      <i class='bx bx-trash' ></i>
+                                          <p>Delete</p>
+                                      </li>
+                                      <% end %>
+                                  </ul>
+                                </div>
+
+                            </div>
+                        </div>
+
+                       
+                    </div>
+                    
+
+                    <div class="notes-content">
+
+                      <p><%= note.content %></p>
+                      
+                    </div>
+                </div>
+              <% end %>
+             
+
+        </div>
